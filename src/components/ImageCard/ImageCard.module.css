@@ -1,0 +1,17 @@
+.imageCard {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.image {
+  width: 300px;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.imageCard:hover {
+  transform: scale(1.05);
+}
