@@ -15,6 +15,10 @@ const MovieReviews = () => {
       .catch(error => console.error('Error fetching movie reviews:', error));
   }, [movieId]);
 
+  if (reviews.length === 0) {
+    return <p>We do not have any reviews for this movie</p>;
+  }
+
   return (
     <div>
       <h2>Reviews</h2>

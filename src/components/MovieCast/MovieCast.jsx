@@ -15,6 +15,10 @@ const MovieCast = () => {
       .catch(error => console.error('Error fetching movie cast:', error));
   }, [movieId]);
 
+  if (cast.length === 0) {
+    return <p>We do not have any cast information for this movie</p>;
+  }
+
   return (
     <div>
       <h2>Cast</h2>
@@ -32,6 +36,7 @@ const MovieCast = () => {
             />
             <p>{actor.name}</p>
             <p>Character: {actor.character}</p>
+            {actor.profile_path ? null : <p>Photo not available</p>}
           </li>
         ))}
       </ul>
