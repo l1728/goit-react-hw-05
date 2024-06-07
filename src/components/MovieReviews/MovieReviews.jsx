@@ -7,6 +7,8 @@ const MovieReviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
+    if (!movieId) return;
+
     axiosInstance
       .get(`/movie/${movieId}/reviews`)
       .then(response => setReviews(response.data.results))

@@ -1,20 +1,12 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { axiosInstance } from '../../api';
 import MovieList from '../../components/MovieList/MovieList';
+import SearchForm from '../../components/SearchForm/SearchForm';
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState('');
-  const navigate = useNavigate();
   const location = useLocation();
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    if (query.trim()) {
-      navigate(`/movies?query=${query}`);
-    }
-  };
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -31,16 +23,7 @@ const MoviesPage = () => {
   return (
     <div>
       <h1>Search Movies</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          id="query"
-          name="query"
-          value={query}
-          onChange={e => setQuery(e.target.value)}
-        />
-        <button type="submit">Search</button>
-      </form>
+      <SearchForm />
       <MovieList movies={movies} />
     </div>
   );

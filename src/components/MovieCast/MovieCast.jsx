@@ -7,6 +7,8 @@ const MovieCast = () => {
   const [cast, setCast] = useState([]);
 
   useEffect(() => {
+    if (!movieId) return;
+
     axiosInstance
       .get(`/movie/${movieId}/credits`)
       .then(response => setCast(response.data.cast))
