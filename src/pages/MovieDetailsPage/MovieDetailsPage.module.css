@@ -1,0 +1,49 @@
+.container {
+  padding: 20px;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.poster {
+  width: 250px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.info {
+  margin-bottom: 10px;
+}
+
+.genres {
+  list-style-type: none;
+  padding: 0;
+}
+
+.genres li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.links li {
+  display: inline;
+  margin-right: 10px;
+}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
 import { axiosInstance, IMAGE_BASE_URL, DEFAULT_IMAGE } from '../../api';
+import styles from './MovieDetailsPage.module.css';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -19,23 +20,32 @@ const MovieDetailsPage = () => {
     return <div>Loading...</div>;
   }
 
-  const { title, poster_path, overview, genres } = movie;
+  const { title, poster_path, overview, genres, release_date, vote_average } =
+    movie;
   const poster = poster_path
     ? `${IMAGE_BASE_URL}${poster_path}`
     : DEFAULT_IMAGE;
 
   return (
-    <div>
-      <Link to={backLink}>Go back</Link>
-      <h1>{title}</h1>
-      <img src={poster} alt={title} width={250} />
-      <p>{overview}</p>
-      <ul>
+    <div className={styles.container}>
+      <Link to={backLink} className={styles.backLink}>
+        Go back
+      </Link>
+      <h1 className={styles.title}>{title}</h1>
+      <img src={poster} alt={title} className={styles.poster} />
+      <p className={styles.info}>
+        <strong>Release Date:</strong> {release_date}
+      </p>
+      <p className={styles.info}>
+        <strong>Rating:</strong> {vote_average}
+      </p>
+      <p className={styles.info}>{overview}</p>
+      <ul className={styles.genres}>
         {genres.map(genre => (
           <li key={genre.id}>{genre.name}</li>
         ))}
       </ul>
-      <ul>
+      <ul className={styles.links}>
         <li>
           <Link to="cast" state={{ from: backLink }}>
             Cast
