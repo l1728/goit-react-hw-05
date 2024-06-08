@@ -32,27 +32,38 @@ const MovieDetailsPage = () => {
         Go back
       </Link>
       <h1 className={styles.title}>{title}</h1>
-      <img src={poster} alt={title} className={styles.poster} />
-      <p className={styles.info}>
-        <strong>Release Date:</strong> {release_date}
-      </p>
-      <p className={styles.info}>
-        <strong>Rating:</strong> {vote_average}
-      </p>
-      <p className={styles.info}>{overview}</p>
-      <ul className={styles.genres}>
-        {genres.map(genre => (
-          <li key={genre.id}>{genre.name}</li>
-        ))}
-      </ul>
+      <div className={styles.contDetails}>
+        <img src={poster} alt={title} className={styles.poster} />
+        <div className={styles.infoGenre}>
+          <ul className={styles.genres}>
+            {genres.map(genre => (
+              <li key={genre.id}>{genre.name}</li>
+            ))}
+          </ul>
+          <p className={styles.info}>{overview}</p>
+          <div className={styles.contInfo}>
+            <p className={styles.infoStrong}>
+              <strong>Release Date:</strong> {release_date}
+            </p>
+            <p className={styles.infoStrong}>
+              <strong>Rating:</strong> {vote_average}
+            </p>
+          </div>
+        </div>
+      </div>
+
       <ul className={styles.links}>
         <li>
-          <Link to="cast" state={{ from: backLink }}>
+          <Link to="cast" state={{ from: backLink }} className={styles.linkTo}>
             Cast
           </Link>
         </li>
         <li>
-          <Link to="reviews" state={{ from: backLink }}>
+          <Link
+            to="reviews"
+            state={{ from: backLink }}
+            className={styles.linkTo}
+          >
             Reviews
           </Link>
         </li>

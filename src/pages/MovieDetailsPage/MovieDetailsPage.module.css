@@ -6,7 +6,8 @@
   display: inline-block;
   margin-bottom: 20px;
   text-decoration: none;
-  color: #007bff;
+  color: #ef82f5;
+  font-size: 17px;
 }
 
 .backLink:hover {
@@ -14,8 +15,9 @@
 }
 
 .title {
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: aliceblue;
 }
 
 .poster {
@@ -26,6 +28,20 @@
 
 .info {
   margin-bottom: 10px;
+  color: aliceblue;
+  font-size: 18px;
+}
+
+.contInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.infoStrong {
+  margin-bottom: 10px;
+  color: #945995;
+  font-weight: 500;
 }
 
 .genres {
@@ -35,7 +51,12 @@
 
 .genres li {
   display: inline;
-  margin-right: 10px;
+  margin-right: 15px;
+  color: #945995;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 18px;
+  text-decoration: underline;
 }
 
 .links {
@@ -46,4 +67,26 @@
 .links li {
   display: inline;
   margin-right: 10px;
+}
+.linkTo {
+  text-decoration: none;
+  font-size: 20px;
+}
+.linkTo:hover {
+  text-decoration: underline;
+}
+.contDetails {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  height: auto;
+}
+
+.infoGenre {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 40px;
+  width: 800px;
+  padding: 20px;
 }

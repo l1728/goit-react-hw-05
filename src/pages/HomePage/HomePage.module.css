@@ -1,0 +1,12 @@
+.contHomePage {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  gap: 10px;
+}
+
+.homePageTitle {
+  font-size: 42px;
+  color: #945995;
+  font-style: italic;
+}
