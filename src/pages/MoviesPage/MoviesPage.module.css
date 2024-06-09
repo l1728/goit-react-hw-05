@@ -12,3 +12,7 @@
   font-style: italic;
   margin-bottom: 0;
 }
+.noResults {
+  color: aliceblue;
+  font-style: italic;
+}

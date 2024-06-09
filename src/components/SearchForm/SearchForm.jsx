@@ -4,7 +4,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { TailSpin } from 'react-loader-spinner';
 import styles from './SearchForm.module.css';
 
-const SearchForm = () => {
+const SearchForm = ({ onSearch }) => {
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -12,6 +12,7 @@ const SearchForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
     if (query.trim()) {
+      onSearch(query);
       navigate(`/movies?query=${query}`);
       setQuery('');
     } else {
@@ -59,7 +60,7 @@ const SearchForm = () => {
           Search
         </button>
       </form>
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 };
