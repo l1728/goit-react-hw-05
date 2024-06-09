@@ -1,0 +1,55 @@
+.contCast {
+  padding: 0px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.titleCastRew {
+  color: #7dd1dc;
+  font-size: 20px;
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+.castLists {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.castItem {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 120px;
+  height: auto;
+}
+.castImg {
+  border-radius: 10px;
+  padding-bottom: 10px;
+  height: 160px;
+  object-fit: cover;
+}
+.castName {
+  color: #7dd1dc;
+  font-weight: 600;
+}
+.castCharacter {
+  color: aliceblue;
+  font-style: italic;
+  font-size: 14px;
+}
+.castNoCast {
+  color: aliceblue;
+  font-style: italic;
+  font-size: 12px;
+}
+.castNoPhoto {
+  color: #945995;
+  font-style: italic;
+  font-size: 12px;
+}
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+}

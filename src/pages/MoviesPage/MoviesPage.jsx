@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { axiosInstance } from '../../api';
 import MovieList from '../../components/MovieList/MovieList';
 import SearchForm from '../../components/SearchForm/SearchForm';
+import styles from './MoviesPage.module.css';
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
@@ -21,8 +22,8 @@ const MoviesPage = () => {
   }, [location.search]);
 
   return (
-    <div>
-      <h1>Search Movies</h1>
+    <div className={styles.contMoviePage}>
+      <h1 className={styles.title}>Search Movies</h1>
       <SearchForm />
       <MovieList movies={movies} />
     </div>

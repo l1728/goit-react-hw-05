@@ -1,28 +1,66 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
+import { TailSpin } from 'react-loader-spinner';
+import styles from './SearchForm.module.css';
 
 const SearchForm = () => {
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = event => {
     event.preventDefault();
     if (query.trim()) {
       navigate(`/movies?query=${query}`);
+      setQuery('');
+    } else {
+      toast.error('Please enter a  name of movie or keyword');
+      return;
     }
   };
 
+  useEffect(() => {
+    if (!loading) return;
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [loading]);
+
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        id="query"
-        name="query"
-        value={query}
-        onChange={e => setQuery(e.target.value)}
-      />
-      <button type="submit">Search</button>
-    </form>
+    <>
+      {loading && (
+        <div className={styles.loader}>
+          <TailSpin
+            height="50"
+            width="50"
+            color="#7dd1dc"
+            ariaLabel="loading"
+          />
+        </div>
+      )}
+      <form onSubmit={handleSubmit} className={styles.searchForm}>
+        <input
+          type="text"
+          id="query"
+          name="query"
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+          className={styles.inputForm}
+        />
+        <button
+          type="submit"
+          onClick={() => setLoading(true)}
+          className={styles.btnForm}
+        >
+          Search
+        </button>
+      </form>
+      <Toaster position="top-right" reverseOrder={false} />
+    </>
   );
 };
 

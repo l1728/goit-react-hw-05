@@ -1,0 +1,30 @@
+.contReview {
+  padding: 0px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.titleCastRew {
+  color: #7dd1dc;
+  font-size: 20px;
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+.rewAuthor {
+  color: #7dd1dc;
+}
+.rewContent {
+  color: #d6d8db;
+  font-size: 14px;
+}
+.castNoCast {
+  color: aliceblue;
+  font-style: italic;
+  font-size: 12px;
+}
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+}

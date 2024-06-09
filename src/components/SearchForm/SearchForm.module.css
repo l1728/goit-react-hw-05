@@ -1,0 +1,37 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: row;
+}
+
+.inputForm {
+  border: 2px solid #7dd1dc;
+  color: #7dd1dc;
+  height: 30px;
+  border-radius: 10px 0 0 10px;
+  background-color: #1f1c1c;
+}
+
+.btnForm {
+  height: 30px;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #7dd1dc;
+  border-radius: 0 10px 10px 0;
+  color: #7dd1dc;
+  background-color: #1f1c1c;
+  cursor: pointer;
+}
+
+.btnForm:hover {
+  color: #7dd1dc;
+  background-color: #394244;
+  border: 3px solid aliceblue;
+}
