@@ -1,19 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { TailSpin } from 'react-loader-spinner';
 import styles from './SearchForm.module.css';
 
 const SearchForm = ({ onSearch }) => {
   const [query, setQuery] = useState('');
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = event => {
     event.preventDefault();
     if (query.trim()) {
       onSearch(query);
-      navigate(`/movies?query=${query}`);
       setQuery('');
     } else {
       toast.error('Please enter a  name of movie or keyword');

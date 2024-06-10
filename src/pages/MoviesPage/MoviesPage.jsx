@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { axiosInstance } from '../../api';
 import MovieList from '../../components/MovieList/MovieList';
 import SearchForm from '../../components/SearchForm/SearchForm';
@@ -8,12 +8,11 @@ import styles from './MoviesPage.module.css';
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [noResults, setNoResults] = useState(false);
-  const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleSearch = useCallback(
     query => {
-      const params = new URLSearchParams(location.search);
-      params.set('query', query);
+      setSearchParams({ query });
 
       axiosInstance
         .get(`/search/movie?query=${query}`)
@@ -30,17 +29,16 @@ const MoviesPage = () => {
           setNoResults(true);
         });
     },
-    [location.search]
+    [setSearchParams]
   );
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const query = params.get('query');
+    const query = searchParams.get('query');
 
     if (query) {
       handleSearch(query);
     }
-  }, [location.search, handleSearch]);
+  }, [searchParams, handleSearch]);
 
   return (
     <div className={styles.contMoviePage}>
